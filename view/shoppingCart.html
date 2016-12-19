@@ -1,0 +1,41 @@
+<div class="row">
+	
+	<h3 class="text-center"><i class="fa fa-shopping-cart"></i> Carrinho de compras</h3>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>Produto</th>
+				<th>Descrição</th>
+				<th>Valor unit.</th>
+				<th width="70">Qtde.</th>
+				<th width="200" class="text-right">Total</th>
+				<th width="5"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="produto in shoppingCart" >
+				<td>{{produto.id}}</td>
+				<td>{{produto.produto}}</td>
+				<td>{{produto.descricao}}</td>
+				<td>{{produto.valor | currency}}</td>
+				<td><input type="text" class="form-control" ng-model="produto.qtde" value="{{produto.qtde}}"></td>
+				<td class="text-right">{{produto.qtde * produto.valor | currency}}</td>
+				<td class="text-right"><a class="btn btn-danger btn-xs" ng-click="deleteThisItem($index)"><i class="fa fa-remove fa-xs"></i></a></td>
+			</tr>
+			<tr class="info text-right" >
+				<td colspan="6"><strong>{{getTotal() | currency}}</strong></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+
+<div class="row text-right">
+
+	<a class="btn btn-danger .navbar-right" ng-click="cleanShoppingCart()"><i class="fa fa-remove fa-xs"></i> remover tudo</a>
+	<a class="btn btn-info .navbar-right" ng-href="#!/productList"><i class="fa fa-arrow-left fa-xs"></i>  voltar as compras</a>
+		
+</div>

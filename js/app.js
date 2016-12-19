@@ -1,0 +1,1 @@
+var appShopping = angular.module("Compras", ["ngRoute", "ngStorage"]);
